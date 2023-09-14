@@ -2,6 +2,10 @@
 
 Remember, way back, when Flash games were all the hype, and you had a friend come over to play a game together? You'd share the same keyboard, with one of you controlling a character with the arrow keys, and the other controlling their character with the WASD keys. Now, thanks to [Ruffle](https://ruffle.rs/) (a Flash emulator) and modern browser technology, you can play those games over the internet!
 
+## Sounds great, do you have a demo?
+
+Yes: https://multiplayer-ruffle-demo.zeus.gent/
+
 ## How does it work?
 
 One player, Alice, is the host: she will have the game running in Ruffle, and will stream a videostream of the game to Bob (the guest). Bob will send his keyboard events to Alice; these are then injected back into the game. Thanks to WebRTC, this can be entirely done in a peer-to-peer fashion: we don't need a game server. This demo runs entirely in the browser.
