@@ -42,7 +42,9 @@ function on_host_load() {
         const canvasElt = document.querySelector("ruffle-player")?.shadowRoot.querySelector("canvas");
         if (canvasElt != null) {
             console.log("Canvas exists, setting up call now");
-            const stream = canvasElt.captureStream(25); // 25 FPS
+            const stream = canvasElt.captureStream(30); // FPS
+            const video_track = stream.getVideoTracks()[0];
+            video_track.contentHint = "motion";
             var call = p.call(guest_video_id, stream);
             console.log("stream=", stream);
             // Disabled, we'll re-enable this for lag-compensation
@@ -89,6 +91,8 @@ function on_guest_load() {
         console.log("received call");
         call.on('stream', function(stream) {
             console.log("On stream, setting video element to ", stream);
+            const video_track = stream.getVideoTracks()[0];
+            video_track.contentHint = "motion";
             document.getElementById("receiving-video").srcObject = stream;
             document.getElementById("receiving-video").play();
         });
