@@ -103,7 +103,8 @@ function on_guest_load() {
         if (guest_data_id != null && guest_video_id != null) {
             let combinedID = `${guest_data_id}/${guest_video_id}`
             document.getElementById("connectiondetails").innerHTML = 
-                `Please pass your connection ID <input readonly size="${combinedID.length}" value="${combinedID}"></input> to the host.
+                `<h1>Connection Information</h1><p>Please pass your connection ID
+                <input id="connectionid" readonly size="${combinedID.length}" value="${combinedID}"> to the host.
                 The game will automatically start when the host clicks the 'Start game' button`
             clearInterval(displayPeerIdIntervalId);
         } else {
@@ -122,21 +123,24 @@ function submit_host_id() {
         on_host_load();
         document.getElementById("connectiondetails").innerHTML = '';
     } else {
-        document.getElementById("error-connectiondetails").innerText = "That does not look right";
+        document.getElementById("error-connectiondetails").innerText = "An error happened";
     }
 }
 
 function click_host() {
     document.getElementById("hostguestchoice").remove();
     document.getElementById("connectiondetails").innerHTML = `
+        <h1>Host</h1>
         <p>Please paste the ID you received from the guest</p>
         <input id="guest_combined_id" size="73">
-        <button onclick="submit_host_id()">Start game</button>
+        <div class="button-row"><button onclick="submit_host_id()">Start game</button></div>
         <div id="error-connectiondetails"></div>
     `
 }
 
 function click_guest() {
     document.getElementById("hostguestchoice").remove();
+    document.getElementById("connectiondetails").innerHTML =
+        "<h1>Connection Information</h1><p>Connecting…</p>";
     on_guest_load();
 }

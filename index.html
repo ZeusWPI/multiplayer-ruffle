@@ -5,17 +5,19 @@
 		<title>Networked ruffle</title>
         <script src="main.js"></script>
         <script src="https://unpkg.com/peerjs@1.3.2/dist/peerjs.min.js"></script>
+        <link rel="stylesheet" href="style.css">
 	</head>
 <body>
-    <div id="hostguestchoice">
+    <div id="hostguestchoice" class="modal">
+        <h1>Player mode</h1>
         <p>One player needs to be the host, one player needs to be the guest. Only the host will have control over the mouse.</p>
         <p>See an explanation <a href="https://github.com/ZeusWPI/multiplayer-ruffle">here</a></p>
-        <form>
+        <form class="button-row">
             <button onclick="click_host()">HOST</button>
             <button onclick="click_guest()">GUEST</button>
         </form>
     </div>
-    <div id="connectiondetails"></div>
+    <div id="connectiondetails" class="modal"></div>
     <div id="container"></div>
     <video id="receiving-video"></video>
     <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
