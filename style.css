@@ -1,0 +1,38 @@
+html {
+  background: #008effff;
+  font: sans-serif;
+}
+
+.modal {
+  background-color: #3977aa;
+  margin: auto;
+  max-width: 40em;
+  padding: 15px;
+  font-family: sans-serif;
+  color: white;
+}
+
+.modal:empty {
+  padding: 0;
+}
+
+.modal h1 {
+  width: 100%;
+  margin: -15px;
+  margin-bottom: 0;
+  background: #203155;
+  border-bottom: solid 1px black;
+  padding: 5px 15px;
+}
+
+#connectiondetails input {
+  display: block;
+  margin: 10px auto;
+  overflow-wrap: break-word
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
